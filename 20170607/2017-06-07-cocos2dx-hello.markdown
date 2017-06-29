@@ -6,7 +6,7 @@ comments: true
 categories: Cocos2d-x
 tags: [Cocos2d-x, basis]
 keyword: 陈浩翔, 谙忆, C++, Cocos2d-x,第一个Cocos2d-x游戏
-description:  
+description: 第一个Cocos2d-x游戏 
 ---
 
 本篇博客讲解:  
@@ -265,7 +265,7 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
 
 #源代码下载地址：
 <blockquote cite='陈浩翔'>
-GITHUB源码下载地址:<strong>【<a href='http://chenhaoxiang.cn' target='_blank'>点我进行下载</a>】</strong></p>
+GITHUB源码下载地址:<strong>【<a href='https://github.com/chenhaoxiang/cocos2d-x/tree/master/20170607/HelloWorld' target='_blank'>点我进行下载</a>】</strong></p>
 </blockquote>
 
 
