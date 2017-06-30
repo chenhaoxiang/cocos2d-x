@@ -12,4 +12,5 @@ echo commit is $var
 git commit -am "$var"
 fi
 git push origin master
+echo 提交代码到master分支成功
 sleep 5
