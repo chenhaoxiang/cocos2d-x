@@ -151,7 +151,7 @@ void unscheduleAllSelectors ( void )//可以停止所有调度
 
 #源代码下载地址：
 <blockquote cite='陈浩翔'>
-GITHUB源码下载地址:<strong>【<a href='http://chenhaoxiang.cn' target='_blank'>点我进行下载</a>】</strong></p>
+GITHUB源码下载地址:<strong>【<a href='https://github.com/chenhaoxiang/cocos2d-x/tree/master/20170611/HelloWorld' target='_blank'>点我进行下载</a>】</strong></p>
 </blockquote>
 
 
