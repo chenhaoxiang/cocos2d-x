@@ -3,16 +3,19 @@ layout: post
 title: "【Cocos2d-x】Cocos2d-X网络编程-HttpRequest/HttpClient/HttpResponse"
 date: 2017-05-31 13:38:54 +0800
 comments: true
-categories: C++
-tags: [C++, basis]
+categories: Cocos2dx
+tags: [Cocos2d-x]
 keyword: 陈浩翔, 谙忆, C++, Cocos2d-x ,Cocos2d-X网络编程
-description: 
+description: Cocos2d-x封装了3个类来处理HTTP请求：HttpRequest,HttpClient和HttpResponse. 使用HttpRequest,HttpClient和HttpResponse这3个类进行Http进行请求时，需要遵循一定流程  
 ---
 
 Cocos2d-x封装了3个类来处理HTTP请求：  
 HttpRequest,HttpClient和HttpResponse.  
 
 使用HttpRequest,HttpClient和HttpResponse这3个类进行Http进行请求时，需要遵循一定流程  
+ 
+<!-- more -->
+----------
 
 请求过程:   
 1.创建HttpRequest的实例。  
@@ -20,10 +23,7 @@ HttpRequest,HttpClient和HttpResponse.
 3.设置请求地址和发送的数据(如果没有发送的数据，可不设置发送数据)。  
 4.设置响应回调函数，在回调函数中处理获取的数据。  
 5.创建HttpClient实例，发送请求。  
-6.释放请求连接。  
-
-<!-- more -->
-----------
+6.释放请求连接。 
 
 #使用Cocos2d封装的HttpRequest设置请求信息
 HttpRequest：  
