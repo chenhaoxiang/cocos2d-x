@@ -157,6 +157,11 @@ bool HelloWorld::init()
 ```
 ![](http://i.imgur.com/IDhDV2w.png)  
 
+#源代码下载地址：
+<blockquote cite='陈浩翔'>
+GITHUB源码下载地址:<strong>【<a href='https://github.com/chenhaoxiang/cocos2d-x/tree/master/20170614/code/OpenGLcoordinates' target='_blank'>点我进行下载</a>】</strong></p>
+</blockquote>
+
 #实例：模型坐标转换为世界坐标  
 
 ![](http://i.imgur.com/SOqOMNO.png)  
@@ -228,7 +233,7 @@ this->addChild(node2, 0);
 
 #源代码下载地址：
 <blockquote cite='陈浩翔'>
-GITHUB源码下载地址:<strong>【<a href='http://chenhaoxiang.cn' target='_blank'>点我进行下载</a>】</strong></p>
+GITHUB源码下载地址:<strong>【<a href='https://github.com/chenhaoxiang/cocos2d-x/tree/master/20170614/code/OpenGLcoordinates2' target='_blank'>点我进行下载</a>】</strong></p>
 </blockquote>
 
 
