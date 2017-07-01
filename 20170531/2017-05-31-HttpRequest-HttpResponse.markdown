@@ -3,7 +3,7 @@ layout: post
 title: "【Cocos2d-x】Cocos2d-X网络编程-HttpRequest/HttpClient/HttpResponse"
 date: 2017-05-31 13:38:54 +0800
 comments: true
-categories: Cocos2-dx
+categories: Cocos2d-x
 tags: [Cocos2d-x]
 keyword: 陈浩翔, 谙忆, C++, Cocos2d-x ,Cocos2d-X网络编程
 description: Cocos2d-x封装了3个类来处理HTTP请求：HttpRequest,HttpClient和HttpResponse. 使用HttpRequest,HttpClient和HttpResponse这3个类进行Http进行请求时，需要遵循一定流程  
