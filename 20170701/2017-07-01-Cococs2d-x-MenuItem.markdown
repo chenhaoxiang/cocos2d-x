@@ -6,19 +6,18 @@ comments: true
 categories: Cocos2d-x
 tags: [Cocos2d-x, basis]
 keyword: 陈浩翔, 谙忆, C++, Cocos2d-x,Cococs2d-x中的菜单
-description:  Cococs2d-x中的菜单，menu,menuItem 1.使用菜单2.文本菜单 3.精灵菜单和图片菜单 4.开关菜单 菜单分类实际上是按照菜单项分类的 文本菜单,精灵菜单，图片菜单和开关菜单其实准确来讲，应该是: 文本菜单项,精灵菜单项，图片菜单项和开关菜单项    
-
+description: Cococs2d-x中的菜单，menu,menuItem,1.使用菜单2.文本菜单3.精灵菜单和图片菜单 4.开关菜单 菜单分类实际上是按照菜单项分类的 文本菜单,精灵菜单，图片菜单和开关菜单其实准确来讲，应该是,文本菜单项,精灵菜单项，图片菜单项和开关菜单项
 ---
 
 本篇博客讲解:    
-1.使用菜单
+1.使用菜单  
 2.文本菜单  
 3.精灵菜单和图片菜单  
 4.开关菜单   
 
-
 <!-- more -->
 ----------
+
 #使用菜单
 Menu - 菜单  
 MenuItem - 菜单项  
@@ -26,6 +25,7 @@ MenuItem - 菜单项
 菜单分类实际上是按照菜单项分类的  
 菜单和菜单项的继承关系图:  
 ![](http://i.imgur.com/OYKnEka.png)  
+
 文本菜单,精灵菜单，图片菜单和开关菜单其实准确来讲，应该是:  
 文本菜单项,精灵菜单项，图片菜单项和开关菜单项  
 
@@ -37,11 +37,13 @@ MenuItem - 菜单项
 文本菜单是菜单项只是显示文本  
 文本菜单类包括了MenuItemLabel、MenuItemFont和MenuItemAtlasFont。MenuItemLabel是个抽象类，具体使用的时候是使用MenuItemFont和MenuItemAtlasFont两个类。
 文本菜单类MenuItemFont，它的其中一个创建函数create定义如下:  
+
 ```C++
 static MenuItemFont* create(const std::string &value, //要显示的文本
 const ccMenuCallback & callback  //菜单操作的回调函数指针,菜单项被点击之后回调的函数
 );
 ```
+
 cocos2d帮我们做了一个宏来帮助我们传递回调函数的参数,CC_CALLBACK_n,n为回调的参数个数  
 ![](http://i.imgur.com/6JjL3zZ.png)  
 ```C++
@@ -69,7 +71,7 @@ bool HelloWorld::init()
 {
 if (!Layer::init())
 {
-	return false;
+return false;
 }
 
 Size visibleSize = Director::getInstance()->getVisibleSize();
@@ -77,7 +79,7 @@ Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 Sprite *bg = Sprite::create("menu/background.png"); //背景图片精灵
 bg->setPosition(Vec2(origin.x + visibleSize.width / 2,
-	origin.y + visibleSize.height / 2));
+origin.y + visibleSize.height / 2));
 this->addChild(bg);
 
 MenuItemFont::setFontName("Times New Roman");//使用系统字体，设置系统字体的名字
@@ -113,13 +115,13 @@ log("Touch Help Menu Item %p", item);
 }
 
 ```
-##显示效果:
-![](http://i.imgur.com/LyozJx3.gif)
+
+##显示效果:  
+![](http://i.imgur.com/LyozJx3.gif)   
 
 ##源代码下载地址：
-<blockquote cite='陈浩翔'>Cocos2dTextMenu
-GITHUB源码下载地址:<strong>【<a href='http://chenhaoxiang.cn' target='_blank'>点我进行下载</a>】</strong></p>
-</blockquote>
+
+GITHUB源码下载地址:<strong>【[点我进行下载](https://github.com/chenhaoxiang/cocos2d-x/tree/master/20170701/code/Cocos2dTextMenu)】</strong>
 
 #精灵菜单和图片菜单
 
@@ -143,7 +145,6 @@ const std::string& selectedImage,//选择菜单项时候的图片
 const std::string& disabledImage,//菜单项禁用时候的图片
 const ccMenuCallback& callback//菜单操作的回调函数指针
 )
-
 ```
 精灵菜单和图片菜单都有三种状态，也就是正常状态，选中状态，还有禁用状态。  
 
@@ -163,7 +164,6 @@ Sprite *bg = Sprite::create("menu/background.png");
 
 bg->setPosition(Vec2(origin.x + visibleSize.width/2,
                          origin.y + visibleSize.height /2));
-
 this->addChild(bg);
 
 //开始精灵
@@ -225,8 +225,8 @@ log("Touch Setting %p", item);
 ![](http://i.imgur.com/cAgqpC1.gif)  
 
 ##源代码下载地址：
-<blockquote cite='陈浩翔'>Cocos2dSpiritMenu
-GITHUB源码下载地址:<strong>【<a href='http://chenhaoxiang.cn' target='_blank'>点我进行下载</a>】</strong></p>
+<blockquote cite='陈浩翔'>
+GITHUB源码下载地址:<strong>【<a href='https://github.com/chenhaoxiang/cocos2d-x/tree/master/20170701/code/Cocos2dSpiritMenu' target='_blank'>点我进行下载</a>】</strong>
 </blockquote>
 
 #开关菜单MenulItemToggle
@@ -252,6 +252,7 @@ Menu* mn=Menu::create(toggleMenuItem,NULL);//把菜单项放入菜单中
 this->addChhild(mn);//把菜单放入层中
 ```  
 这里只是简单的文本菜单，当然也可以是精灵菜单，也可以是图片菜单...   
+
 ##实例
 ```C++
 bool HelloWorld::init()
@@ -325,8 +326,8 @@ Menu 放入 Layer
 
 
 #源代码下载地址：
-<blockquote cite='陈浩翔'>Cocos2dToggleMenuItem
-GITHUB源码下载地址:<strong>【<a href='http://chenhaoxiang.cn' target='_blank'>点我进行下载</a>】</strong></p>
+<blockquote cite='陈浩翔'>
+GITHUB源码下载地址:<strong>【<a href='https://github.com/chenhaoxiang/cocos2d-x/tree/master/20170701/code/Cocos2dToggleMenuItem' target='_blank'>点我进行下载</a>】</strong>
 </blockquote>
 
 
