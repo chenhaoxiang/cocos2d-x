@@ -1,0 +1,18 @@
+<Solution>
+  <PropertyGroup Name="Cocos2dToggleMenuItem" Version="3.10.0.0" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <Image Name="HelloWorld.png" />
+        <Project Name="Layer.csd" Type="Layer" />
+        <Project Name="MainScene.csd" Type="Scene" />
+        <Image Name="off.png" />
+        <Image Name="ok-down.png" />
+        <Image Name="ok-up.png" />
+        <Image Name="on.png" />
+        <Image Name="setting-back.png" />
+        <Project Name="ToogleScene.csd" Type="Scene" />
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>
