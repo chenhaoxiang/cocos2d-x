@@ -1,18 +1,19 @@
 ---
 layout: post
-title: "【Cocos2d-x】开发实战-Cocos中的字符串、标签和中文乱码 "
+title: "【Cocos2d-x】开发实战-Cocos中的字符串、标签和中文乱码"
 date: 2017-06-27 13:38:54 +0800
 comments: true
 categories: Cocos2d-x
 tags: [Cocos2d-x, basis]
-keyword: 陈浩翔, 谙忆, C++, Cocos2d-x,字符串和标签
-description:  1.Ccocos2d-x中的字符串2.使用标签3.中文乱码问题
+keyword: 陈浩翔, 谙忆, C++, Cocos2d-x, 字符串和标签
+description: 1.Cocos2d-x中的字符串2.使用标签3.中文乱码问题
 ---
 
 本篇博客讲解:  
 1.Ccocos2d-x中的字符串
 2.使用标签
 3.中文乱码问题
+
 <!-- more -->
 ----------
 [TOC]
@@ -43,7 +44,7 @@ const char* cstring = name.c_str();//静态方法创建
 const char* cstring = namep->c_str();//namep为指针
 ```
 
-```
+```C++
 std::string name = "jack";//直接赋值
 
 log("name = %s",name);//直接这样会出现乱码问题，因为log用的不对
@@ -65,12 +66,11 @@ log("name1 = %s", name1->c_str());
 ![](http://i.imgur.com/3wvkHJl.png)  
 
 创建它的主要的静态create函数如下(工厂设计模式)
-```
+```C++
 static __String *create(const std::string &str)
 static __String *createWithFormat(const char *format,...)
 //createWithFormat-通过创建模板来创建字符串，所以可以通过这个方法把其他类型的转换为字符串
 ```
-
 ###数据类型之间的转换    
 cocos2d::__String 转换为const cahr*类型，这种转换还是用的比较多的  
 ```C++ cocos2d::__String 转换为const cahr*类型
@@ -113,7 +113,7 @@ int num2 = ns->intValue();
 
 ###解决方法二
 转码GBK->UTF-8  
-```
+```C++
 	__String *cns = __String::create("大家好啊");
 	const char* nsc;
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
@@ -127,8 +127,7 @@ int num2 = ns->intValue();
 
 ```
 
-```
-
+```C++
 //在Win32平台下，将GBK编码转换为UTF-8
 string MyUtility::gbk_2_utf8(const string text){
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) //条件编译
@@ -186,7 +185,7 @@ string MyUtility::gbk_2_utf8(const string text){
 TTF基于系统字库  
 
 ![](http://i.imgur.com/khRSKgT.png)  
-```
+```C++
 //静态create函数创建
 auto label = LabelTTF::create("大家好", "Arial", 24);//如乱码请参照前面的解决
 //在不同的平台中都是去找Arial这个系统库，然后去显示出来,24为字号
@@ -199,7 +198,7 @@ this->addChild(label, 1,123);//设置tag为123，方便后面获取
 ```
 
 create函数的完整定义:
-```    
+```C++
 /** creates a Label from a fontname, alignment, dimension in points and font size in points
      @since v2.0.1
 */
@@ -246,7 +245,7 @@ LabelBMFont比LabelTTF快很多。LabelBMFont中的每个字符的宽度是可�
 (大家可以简单的学习一下工具)
 
 创建并初始化标签
-```
+```C++
 	auto label2 = LabelBMFont::create("HelloWord","fonts/BMFont.fnt");
 	label2->setPosition(Vec2(visibleSize.width / 2, visibleSize.height - label2->getContentSize().height));
 	this->addChild(label2,1);
@@ -264,7 +263,7 @@ Cocos2d-x 3.x后推出了新的标签类Label，这种标签通过使用FreeType
 推荐使用该标签类Label，该类替换了前面的三个标签类  
 
 创建Label类静态create函数常用的有如下几个：
-```
+```C++
 static Label* createWithSystemFont(conststd::string &text,   //是要显示的文字                             
 const std::string& font,                                     //系统字体名  
 float fontSize,                                             //字体的大小  
@@ -296,43 +295,33 @@ const Point&  imageOffset = Point::ZERO )                               //可省
 ```
 
 使用实例
-```
-	auto label1 = Label::createWithSystemFont("Hello World1", "Arial", 36);
-	label1->setPosition(Vec2(origin.x + visibleSize.width/2,
-		origin.y + visibleSize.height - 100));
-	this->addChild(label1, 1);//Win32的字体库可以在控制面板中找到
+```C++
+auto label1 = Label::createWithSystemFont("Hello World1", "Arial", 36);
+label1->setPosition(Vec2(origin.x + visibleSize.width/2,origin.y + visibleSize.height - 100));
+this->addChild(label1, 1);//Win32的字体库可以在控制面板中找到
 
-	auto label2 = Label::createWithTTF("Hello World2", "fonts/Marker Felt.ttf", 36);
-	label2->setPosition(Vec2(origin.x + visibleSize.width/2,
-		origin.y + visibleSize.height - 200));
-	this->addChild(label2, 1);
+auto label2 = Label::createWithTTF("Hello World2", "fonts/Marker Felt.ttf", 36);
+label2->setPosition(Vec2(origin.x + visibleSize.width/2,origin.y + visibleSize.height - 200));
+this->addChild(label2, 1);
 
-	auto label3 = Label::createWithBMFont("fonts/BMFont.fnt", "Hello World3");
-	label3->setPosition(Vec2(origin.x + visibleSize.width/2,
-		origin.y + visibleSize.height - 300));
-	this->addChild(label3, 1);
+auto label3 = Label::createWithBMFont("fonts/BMFont.fnt", "Hello World3");
+label3->setPosition(Vec2(origin.x + visibleSize.width/2,origin.y + visibleSize.height - 300));
+this->addChild(label3, 1);
 
 
-	TTFConfig ttfConfig("fonts/Marker Felt.ttf",
-		36,
-		GlyphCollection::DYNAMIC);
-	auto label4 = Label::createWithTTF(ttfConfig, "Hello World4");
-	label4->setPosition(Vec2(origin.x + visibleSize.width/2,
-		origin.y + visibleSize.height - 400));
-	this->addChild(label4 , 1);
+TTFConfig ttfConfig("fonts/Marker Felt.ttf",36,GlyphCollection::DYNAMIC);
+auto label4 = Label::createWithTTF(ttfConfig, "Hello World4");
+label4->setPosition(Vec2(origin.x + visibleSize.width/2,origin.y + visibleSize.height - 400));
+this->addChild(label4 , 1);
 
-	ttfConfig.outlineSize = 4;
-	auto label5 = Label::createWithTTF(ttfConfig, "Hello World5");
-	//ttfConfig-结构体配置，能配置更多的特效，比如描边，阴影，闪烁的文字等
-	//只能是TTF文件的，才能使用这些特效
-	label5->setPosition(Vec2(origin.x + visibleSize.width/2,
-		origin.y + visibleSize.height - 500));
-	label5->enableShadow(Color4B(255,255,255,128), Size(4, -4));//设置阴影，阴影的颜色，阴影的大小 
-	label5->setColor(Color3B::RED);//设置颜色
-	
-	this->addChild(label5, 1);
-
-
+ttfConfig.outlineSize = 4;
+auto label5 = Label::createWithTTF(ttfConfig, "Hello World5");
+//ttfConfig-结构体配置，能配置更多的特效，比如描边，阴影，闪烁的文字等
+//只能是TTF文件的，才能使用这些特效
+label5->setPosition(Vec2(origin.x + visibleSize.width/2,origin.y + visibleSize.height - 500));
+label5->enableShadow(Color4B(255,255,255,128), Size(4, -4));//设置阴影，阴影的颜色，阴影的大小 
+label5->setColor(Color3B::RED);//设置颜色
+this->addChild(label5, 1);
 ```
 
 ##标签中文乱码问题
@@ -345,7 +334,7 @@ const Point&  imageOffset = Point::ZERO )                               //可省
 
 #源代码下载地址：
 <blockquote cite='陈浩翔'>
-GITHUB源码下载地址:<strong>【<a href='https://github.com/chenhaoxiang/cocos2d-x/tree/master/20170627/code' target='_blank'>点我进行下载</a>】</strong></p>
+GITHUB源码下载地址:<strong>【<a href='https://github.com/chenhaoxiang/cocos2d-x/tree/master/20170627/code' target='_blank'>点我进行下载</a>】</strong>
 </blockquote>
 
 
