@@ -114,7 +114,7 @@ ParaSetActivity类上的注解的值为mLink的key
 
 #源代码下载地址：
 <blockquote cite='陈浩翔'>
-GITHUB源码下载地址:<strong>【<a href='http://chenhaoxiang.cn' target='_blank'>点我进行下载</a>】</strong></p>
+GITHUB源码下载地址:<strong>【<a href='https://github.com/chenhaoxiang/cocos2d-x/tree/master/20170823/code/testMagicWindow' target='_blank'>点我进行下载</a>】</strong></p>
 </blockquote>
 
 
