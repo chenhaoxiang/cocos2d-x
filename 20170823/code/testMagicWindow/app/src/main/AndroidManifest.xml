@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="chenhaoxiang.cn.testmagicwindow">
+
+    <!-- 连接互联网Internet权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 允许应用程序联网，以便向我们的服务器端发送数据。 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--判断程序是否在前台运行,必须 -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <!-- 检测手机基本状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 缓存资源优先存入SDcard -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".HomeMWActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <data android:scheme="chenhaoxiang"/>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ParaSetActivity"
+            android:label="ParaSetActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <!--总的activity，必须注册！！！ -->
+        <activity
+            android:name="cn.magicwindow.common.base.MWActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize|navigation"
+            android:exported="true">
+        </activity>
+
+        <!--MW sdk ID 此处跟activity同级，需要放在Application内，MW_APPID（也就是后台的”魔窗AppKey”）不能更改 -->
+        <meta-data android:name="MW_APPID" android:value="BQCNR1HDOYZGM1KJO7CPAQ2W9PCWGNEH" />
+        <!-- 渠道 -->
+        <!--<meta-data-->
+            <!--android:name="MW_CHANNEL"-->
+            <!--android:value="应用宝" />-->
+    </application>
+
+</manifest>
